@@ -46,18 +46,23 @@ namespace WcfService.Service
         }
     
 
-public bool SaveAlumno(DTOAlumno dtalumno)
+public bool NewAlumno(DTOAlumno dtolumno)
 {
     mp=new MapAlumnos();
     try
     {
         using (OperativoEntities EntityAlumno=new OperativoEntities())
         {
-            alumnos al = new alumnos();
-           al = mp.MapAlumnosDTOToENT(dtalumno);
-           EntityAlumno.alumnos.Add(al);
-            EntityAlumno.SaveChanges();
+            alumnos EntityBusquedaAlumno = EntityAlumno.alumnos.FirstOrDefault(p => p.Id_Alumno == dtolumno.id);
+            if (EntityBusquedaAlumno==null)
+            {
+                EntityBusquedaAlumno = new alumnos();
+                EntityBusquedaAlumno = mp.MapAlumnosDTOToENT(dtolumno, EntityBusquedaAlumno);
+                EntityAlumno.alumnos.Add(EntityBusquedaAlumno);
+            }
             
+            EntityAlumno.SaveChanges();
+          
         }
         return true;
     }
@@ -66,11 +71,34 @@ public bool SaveAlumno(DTOAlumno dtalumno)
 
         return false;
     }
+}
 
+public bool UpdateAlumno(DTOAlumno dtoalumno)
+{
+    mp = new MapAlumnos();
+    try
+    {
+        using (OperativoEntities entityAlumno=new OperativoEntities())
+        {
 
-    return true;
+            var BusquedaAlumno = entityAlumno.alumnos.FirstOrDefault(p => p.Id_Alumno == dtoalumno.id);
+            if (BusquedaAlumno!=null)
+            {
+                BusquedaAlumno = mp.MapAlumnosDTOToENT(dtoalumno, BusquedaAlumno);
+            }
+            entityAlumno.SaveChanges();
+            return true;
+        }
+    }
+    catch (Exception)
+    {
+        
+        return false;
+    }
+    
 }
 
 
-}
+
+    }
 }

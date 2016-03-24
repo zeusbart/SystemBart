@@ -21,7 +21,7 @@ namespace DTOs_Maps.Maps
            DTOAlumno DTOAlumno=new DTOAlumno();
            try
            {
-               alumnos.Id_Estado = DTOAlumno.Id_Estado;
+               
                alumnos.nombre = DTOAlumno.nombre;
                alumnos.appat = DTOAlumno.appat;
                alumnos.apmat = DTOAlumno.apmat;
@@ -40,20 +40,21 @@ namespace DTOs_Maps.Maps
          
        }
 
-       public Model.alumnos MapAlumnosDTOToENT(DTOAlumno DTOAlumno)
+       public Model.alumnos MapAlumnosDTOToENT(DTOAlumno dto,Model.alumnos ent)
        {
-           Model.alumnos alu=new Model.alumnos();
+           
            try
            {
 
-               alu.Id_Estado = DTOAlumno.Id_Estado;
-               alu.nombre = DTOAlumno.nombre;
-               alu.appat = DTOAlumno.appat;
-               alu.apmat = DTOAlumno.apmat;
-               alu.curp = DTOAlumno.curp;
-               alu.fecha_nac = DTOAlumno.fecha_nac;
-               alu.Id_Estado = DTOAlumno.Id_Estado;
-               return alu;
+               ent.Id_Alumno = dto.id;
+               ent.nombre = dto.nombre;
+               ent.appat = dto.appat;
+               ent.apmat = dto.apmat;
+               ent.curp = dto.curp;
+               ent.Id_Estado = dto.Id_Estado;
+               ent.fecha_nac = dto.fecha_nac;
+
+               return ent;
            }
            catch (Exception ex)
            {

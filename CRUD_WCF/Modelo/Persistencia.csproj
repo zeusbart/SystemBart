@@ -50,80 +50,80 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Catalogo\Catalogo.Context.cs">
+    <Compile Include="Model\Catalogo\CatalogoEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Catalogo.Context.tt</DependentUpon>
+      <DependentUpon>CatalogoEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Catalogo\Catalogo.cs">
+    <Compile Include="Model\Catalogo\CatalogoEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Catalogo.tt</DependentUpon>
+      <DependentUpon>CatalogoEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Catalogo\Catalogo.Designer.cs">
+    <Compile Include="Model\Catalogo\CatalogoEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Catalogo.edmx</DependentUpon>
+      <DependentUpon>CatalogoEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\Catalogo\Cat_Estados.cs">
-      <DependentUpon>Catalogo.tt</DependentUpon>
+      <DependentUpon>CatalogoEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Operativo\alumnos.cs">
-      <DependentUpon>Operativo.tt</DependentUpon>
+      <DependentUpon>OperativoEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Operativo\Operativo.Context.cs">
+    <Compile Include="Model\Operativo\OperativoEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Operativo.Context.tt</DependentUpon>
+      <DependentUpon>OperativoEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Operativo\Operativo.cs">
+    <Compile Include="Model\Operativo\OperativoEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Operativo.tt</DependentUpon>
+      <DependentUpon>OperativoEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Operativo\Operativo.Designer.cs">
+    <Compile Include="Model\Operativo\OperativoEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Operativo.edmx</DependentUpon>
+      <DependentUpon>OperativoEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="Model\Catalogo\Catalogo.edmx">
+    <EntityDeploy Include="Model\Operativo\OperativoEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Catalogo.Designer.cs</LastGenOutput>
+      <LastGenOutput>OperativoEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\Catalogo\Catalogo.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Catalogo.edmx</DependentUpon>
-      <LastGenOutput>Catalogo.Context.cs</LastGenOutput>
-    </None>
-    <None Include="Model\Catalogo\Catalogo.edmx.diagram">
-      <DependentUpon>Catalogo.edmx</DependentUpon>
-    </None>
-    <None Include="Model\Catalogo\Catalogo.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Catalogo.edmx</DependentUpon>
-      <LastGenOutput>Catalogo.cs</LastGenOutput>
-    </None>
-    <EntityDeploy Include="Model\Operativo\Operativo.edmx">
+    <EntityDeploy Include="Model\Catalogo\CatalogoEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Operativo.Designer.cs</LastGenOutput>
+      <LastGenOutput>CatalogoEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\Operativo\Operativo.Context.tt">
+    <None Include="Model\Catalogo\CatalogoEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Operativo.edmx</DependentUpon>
-      <LastGenOutput>Operativo.Context.cs</LastGenOutput>
+      <DependentUpon>CatalogoEntities.edmx</DependentUpon>
+      <LastGenOutput>CatalogoEntities.Context.cs</LastGenOutput>
     </None>
-    <None Include="Model\Operativo\Operativo.edmx.diagram">
-      <DependentUpon>Operativo.edmx</DependentUpon>
+    <None Include="Model\Catalogo\CatalogoEntities.edmx.diagram">
+      <DependentUpon>CatalogoEntities.edmx</DependentUpon>
     </None>
-    <None Include="Model\Operativo\Operativo.tt">
+    <None Include="Model\Catalogo\CatalogoEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Operativo.edmx</DependentUpon>
-      <LastGenOutput>Operativo.cs</LastGenOutput>
+      <DependentUpon>CatalogoEntities.edmx</DependentUpon>
+      <LastGenOutput>CatalogoEntities.cs</LastGenOutput>
+    </None>
+    <None Include="Model\Operativo\OperativoEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OperativoEntities.edmx</DependentUpon>
+      <LastGenOutput>OperativoEntities.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Model\Operativo\OperativoEntities.edmx.diagram">
+      <DependentUpon>OperativoEntities.edmx</DependentUpon>
+    </None>
+    <None Include="Model\Operativo\OperativoEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OperativoEntities.edmx</DependentUpon>
+      <LastGenOutput>OperativoEntities.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

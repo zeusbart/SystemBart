@@ -13,10 +13,10 @@ namespace Persistencia.Model.Operativo
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class OperativoEntities : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public OperativoEntities()
+            : base("name=OperativoEntities")
         {
         }
     

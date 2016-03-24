@@ -14,7 +14,7 @@ namespace Persistencia.Model.Operativo
     
     public partial class alumnos
     {
-        public int id { get; set; }
+        public int Id_Alumno { get; set; }
         public string nombre { get; set; }
         public string appat { get; set; }
         public string apmat { get; set; }

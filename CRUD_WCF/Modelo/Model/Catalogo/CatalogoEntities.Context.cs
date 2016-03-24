@@ -13,10 +13,10 @@ namespace Persistencia.Model.Catalogo
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class escuelaEntities : DbContext
+    public partial class CatalogoEntities : DbContext
     {
-        public escuelaEntities()
-            : base("name=escuelaEntities")
+        public CatalogoEntities()
+            : base("name=CatalogoEntities")
         {
         }
     

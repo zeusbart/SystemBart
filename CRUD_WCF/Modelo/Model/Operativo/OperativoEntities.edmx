@@ -4,12 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Operativo.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="OperativoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="alumnos">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id_Alumno" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Id_Alumno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="appat" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="apmat" Type="varchar" MaxLength="50" Nullable="false" />
@@ -17,45 +17,44 @@
           <Property Name="fecha_nac" Type="date" />
           <Property Name="Id_Estado" Type="int" />
         </EntityType>
-        <EntityContainer Name="OperativoStoreContainer">
+        <EntityContainer Name="OperativoModelStoreContainer">
           <EntitySet Name="alumnos" EntityType="Self.alumnos" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Operativo" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="OperativoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="OperativoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="alumnos" EntityType="OperativoModel.alumnos" />
+        </EntityContainer>
         <EntityType Name="alumnos">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id_Alumno" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="appat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="apmat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id_Alumno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="appat" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apmat" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="curp" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="fecha_nac" Type="DateTime" Precision="0" />
           <Property Name="Id_Estado" Type="Int32" />
         </EntityType>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="alumnos" EntityType="Self.alumnos" />
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="OperativoStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="OperativoModelStoreContainer" CdmEntityContainer="OperativoEntities">
           <EntitySetMapping Name="alumnos">
-            <EntityTypeMapping TypeName="Operativo.alumnos">
+            <EntityTypeMapping TypeName="OperativoModel.alumnos">
               <MappingFragment StoreEntitySet="alumnos">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="appat" ColumnName="appat" />
-                <ScalarProperty Name="apmat" ColumnName="apmat" />
-                <ScalarProperty Name="curp" ColumnName="curp" />
-                <ScalarProperty Name="fecha_nac" ColumnName="fecha_nac" />
                 <ScalarProperty Name="Id_Estado" ColumnName="Id_Estado" />
+                <ScalarProperty Name="fecha_nac" ColumnName="fecha_nac" />
+                <ScalarProperty Name="curp" ColumnName="curp" />
+                <ScalarProperty Name="apmat" ColumnName="apmat" />
+                <ScalarProperty Name="appat" ColumnName="appat" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="Id_Alumno" ColumnName="Id_Alumno" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

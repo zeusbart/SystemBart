@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Dtos.DTO;
-using Persistencia.Model.Operativo;
-namespace Dtos.Maps
+using DTOs_Maps.DTO;
+using Model=Persistencia.Model.Operativo;
+
+
+namespace DTOs_Maps.Maps
 {
    public class MapAlumnos
     {
@@ -14,7 +16,7 @@ namespace Dtos.Maps
        /// </summary>
        /// <param name="alumnos"></param>
         /// <returns>DTOAlumno</returns>
-       public DTOAlumno MapAlumnosENTToDTO(alumnos alumnos)
+       public DTOAlumno MapAlumnosENTToDTO(Model.alumnos alumnos)
        {
            DTOAlumno DTOAlumno=new DTOAlumno();
            try
@@ -36,6 +38,28 @@ namespace Dtos.Maps
            }
          
          
+       }
+
+       public Model.alumnos MapAlumnosDTOToENT(DTOAlumno DTOAlumno)
+       {
+           Model.alumnos alu=new Model.alumnos();
+           try
+           {
+
+               alu.Id_Estado = DTOAlumno.Id_Estado;
+               alu.nombre = DTOAlumno.nombre;
+               alu.appat = DTOAlumno.appat;
+               alu.apmat = DTOAlumno.apmat;
+               alu.curp = DTOAlumno.curp;
+               alu.fecha_nac = DTOAlumno.fecha_nac;
+               alu.Id_Estado = DTOAlumno.Id_Estado;
+               return alu;
+           }
+           catch (Exception ex)
+           {
+               
+               throw ex;
+           }
        }
     }
 }

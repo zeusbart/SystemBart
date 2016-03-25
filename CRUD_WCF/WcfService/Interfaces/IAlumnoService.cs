@@ -17,9 +17,8 @@ namespace WcfService.Service
         DTOAlumnosList GetAllAlumnos();
 
         [OperationContract]
-        Boolean NewAlumno(DTOAlumno alumno);
+        Boolean NewAndUpdateAlumno(DTOAlumno alumno);
 
-        [OperationContract]
-        Boolean UpdateAlumno(DTOAlumno alumno);
+       
     }
 }

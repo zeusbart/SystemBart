@@ -44,9 +44,9 @@ namespace WcfService.Service
                 throw e;
             }
         }
-    
 
-public bool NewAlumno(DTOAlumno dtolumno)
+
+        public bool NewAndUpdateAlumno(DTOAlumno dtolumno)
 {
     mp=new MapAlumnos();
     try
@@ -59,6 +59,11 @@ public bool NewAlumno(DTOAlumno dtolumno)
                 EntityBusquedaAlumno = new alumnos();
                 EntityBusquedaAlumno = mp.MapAlumnosDTOToENT(dtolumno, EntityBusquedaAlumno);
                 EntityAlumno.alumnos.Add(EntityBusquedaAlumno);
+            }
+            else
+            {
+                //actualizar
+                EntityBusquedaAlumno = mp.MapAlumnosDTOToENT(dtolumno, EntityBusquedaAlumno);
             }
             
             EntityAlumno.SaveChanges();
@@ -73,30 +78,7 @@ public bool NewAlumno(DTOAlumno dtolumno)
     }
 }
 
-public bool UpdateAlumno(DTOAlumno dtoalumno)
-{
-    mp = new MapAlumnos();
-    try
-    {
-        using (OperativoEntities entityAlumno=new OperativoEntities())
-        {
 
-            var BusquedaAlumno = entityAlumno.alumnos.FirstOrDefault(p => p.Id_Alumno == dtoalumno.id);
-            if (BusquedaAlumno!=null)
-            {
-                BusquedaAlumno = mp.MapAlumnosDTOToENT(dtoalumno, BusquedaAlumno);
-            }
-            entityAlumno.SaveChanges();
-            return true;
-        }
-    }
-    catch (Exception)
-    {
-        
-        return false;
-    }
-    
-}
 
 
 

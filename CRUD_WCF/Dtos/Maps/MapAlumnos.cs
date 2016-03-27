@@ -16,18 +16,20 @@ namespace DTOs_Maps.Maps
        /// </summary>
        /// <param name="alumnos"></param>
         /// <returns>DTOAlumno</returns>
+        /// 
+       
        public DTOAlumno MapAlumnosENTToDTO(Model.alumnos alumnos)
        {
-           DTOAlumno DTOAlumno=new DTOAlumno();
+           DTOAlumno DTOAlumno = new DTOAlumno();
            try
            {
-               
-               alumnos.nombre = DTOAlumno.nombre;
-               alumnos.appat = DTOAlumno.appat;
-               alumnos.apmat = DTOAlumno.apmat;
-               alumnos.curp = DTOAlumno.curp;
-               alumnos.fecha_nac = DTOAlumno.fecha_nac;
-               alumnos.Id_Estado = DTOAlumno.Id_Estado;
+               DTOAlumno.id = alumnos.Id_Alumno;
+               DTOAlumno.nombre = alumnos.nombre;
+               DTOAlumno.appat=alumnos.appat;
+                DTOAlumno.apmat=alumnos.apmat;
+                DTOAlumno.curp = alumnos.curp;
+               DTOAlumno.fecha_nac =alumnos.fecha_nac ;
+                DTOAlumno.Id_Estado= alumnos.Id_Estado;
 
                return DTOAlumno;
            }
@@ -40,19 +42,19 @@ namespace DTOs_Maps.Maps
          
        }
 
-       public Model.alumnos MapAlumnosDTOToENT(DTOAlumno dto,Model.alumnos ent)
+       public Model.alumnos MapAlumnosDTOToENT(DTOAlumno DTOAlumno,Model.alumnos ent)
        {
-           
+          
            try
            {
 
-               ent.Id_Alumno = dto.id;
-               ent.nombre = dto.nombre;
-               ent.appat = dto.appat;
-               ent.apmat = dto.apmat;
-               ent.curp = dto.curp;
-               ent.Id_Estado = dto.Id_Estado;
-               ent.fecha_nac = dto.fecha_nac;
+               ent.Id_Alumno = DTOAlumno.id;
+               ent.nombre = DTOAlumno.nombre;
+               ent.appat = DTOAlumno.appat;
+               ent.apmat = DTOAlumno.apmat;
+               ent.curp = DTOAlumno.curp;
+               ent.Id_Estado = DTOAlumno.Id_Estado;
+               ent.fecha_nac = DTOAlumno.fecha_nac;
 
                return ent;
            }

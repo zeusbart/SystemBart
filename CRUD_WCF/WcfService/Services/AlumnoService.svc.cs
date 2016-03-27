@@ -29,11 +29,11 @@ namespace WcfService.Service
                 DTOAlumnosList ListaDTOALumnos=new DTOAlumnosList();
                 using (OperativoEntities EntityAlumnos = new OperativoEntities())
                 {
-                    var allEntityAlumnos = EntityAlumnos.alumnos;
+                    var allEntityAlumnos = EntityAlumnos.alumnos.ToList();
                     foreach (var item in allEntityAlumnos)
                     {
-                        DTOAlumno DTOAlumno = mp.MapAlumnosENTToDTO(item);
-                        ListaDTOALumnos.Add(DTOAlumno);
+                        DTOAlumno DTOalumno = mp.MapAlumnosENTToDTO(item);
+                        ListaDTOALumnos.Add(DTOalumno);
                     }
                 }
                 return ListaDTOALumnos;
@@ -44,6 +44,8 @@ namespace WcfService.Service
                 throw e;
             }
         }
+
+
 
 
         public bool NewAndUpdateAlumno(DTOAlumno dtolumno)
@@ -57,7 +59,7 @@ namespace WcfService.Service
             if (EntityBusquedaAlumno==null)
             {
                 EntityBusquedaAlumno = new alumnos();
-                EntityBusquedaAlumno = mp.MapAlumnosDTOToENT(dtolumno, EntityBusquedaAlumno);
+                EntityBusquedaAlumno = mp.MapAlumnosDTOToENT(dtolumno,EntityBusquedaAlumno);
                 EntityAlumno.alumnos.Add(EntityBusquedaAlumno);
             }
             else
@@ -78,9 +80,34 @@ namespace WcfService.Service
     }
 }
 
+        public DTOAlumnosList GetOneAlumno(int id)
+        {
+            mp=new MapAlumnos();
+           DTOAlumnosList list=new DTOAlumnosList();
+            try
+            {
+                using (OperativoEntities ConexionEntityOP=new OperativoEntities())
+                {
+                  var consulta = ConexionEntityOP.alumnos.Where(p => p.Id_Alumno == id);
 
+                  foreach (var dato in consulta)
+                    {
+                        
+                        DTOAlumno dt = mp.MapAlumnosENTToDTO(dato);
+                       
+                        list.Add(dt);
+                    }
+                 
 
+                }
+                return list;
+            }
+            catch (Exception)
+            {
+                 
+                throw;
+            }
 
-
+        }
     }
 }

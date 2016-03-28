@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
-using System.Text;
-using DTOs_Maps.DTO;
 using DTOs_Maps.DTO;
 
-namespace WcfService.Service
+namespace WcfService.Interfaces
 {
     // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de interfaz "IAlumnoService" en el código y en el archivo de configuración a la vez.
     [ServiceContract(Namespace = "IAlumnoService")]
@@ -16,6 +11,7 @@ namespace WcfService.Service
     {
         [OperationContract(Name = "GetAllAlumnos")]
         [WebInvoke(
+            Method = "GET",
             ResponseFormat = WebMessageFormat.Json,
             RequestFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Bare,
@@ -32,7 +28,7 @@ namespace WcfService.Service
 
         [OperationContract]
         [WebInvoke(
-            Method = "POST",
+            Method = "GET",
             ResponseFormat = WebMessageFormat.Json,
             RequestFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Wrapped)]
